@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "f0764a35-0917-4b33-b57d-9ebf65b6692e",
+		"name": "Day5_APIChaining_StudentsDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40215593"
+	},
+	"item": [
+		{
+			"name": "CreateANewStudent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"pm.environment.set(\"studentId\", jsonData.id);\r",
+							"console.log(\"Captured Student ID\", jsonData.id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"studentName\", \"Abdallah Salem\");\r",
+							"pm.environment.set(\"studentLocation\", \"Cairo\");\r",
+							"pm.environment.set(\"studentPhoneNumber\", \"123456789\");\r",
+							"pm.environment.set(\"studentCourse1\", \"Web Testing using Selenium\");\r",
+							"pm.environment.set(\"studentCourse2\", \"API Testing using Postman\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"name\": \"{{studentName}}\", \r\n    \"location\": \"{{studentLocation}}\", \r\n    \"phone\": \"{{studentPhoneNumber}}\", \r\n    \"courses\": [ \"{{studentCourse1}}\", \"{{studentCourse2}}\" ] \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAStudent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"validate the student name\", ()=> {\r",
+							"    pm.expect(jsonData.id).to.eql(pm.environment.get(\"studentId\"));\r",
+							"});\r",
+							"pm.test(\"validate the student location\", ()=> {\r",
+							"    pm.expect(jsonData.location).to.eql(pm.environment.get(\"studentLocation\"));\r",
+							"});\r",
+							"pm.test(\"validate the student phone number\", ()=> {\r",
+							"    pm.expect(jsonData.phone).to.eql(pm.environment.get(\"studentPhoneNumber\"));\r",
+							"});\r",
+							"pm.test(\"validate the student course 1\", ()=> {\r",
+							"    pm.expect(jsonData.courses[0]).to.eql(pm.environment.get(\"studentCourse1\"));\r",
+							"});\r",
+							"pm.test(\"validate the student course 2\", ()=> {\r",
+							"    pm.expect(jsonData.courses[1]).to.eql(pm.environment.get(\"studentCourse2\"));\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/students/{{studentId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"{{studentId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAStudent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.unset(\"studentId\");\r",
+							"pm.environment.unset(\"studentName\");\r",
+							"pm.environment.unset(\"studentPhoneNumber\");\r",
+							"pm.environment.unset(\"studentLocation\");\r",
+							"pm.environment.unset(\"studentCourse1\");\r",
+							"pm.environment.unset(\"studentCourse2\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/students/{{studentId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"students",
+						"{{studentId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
