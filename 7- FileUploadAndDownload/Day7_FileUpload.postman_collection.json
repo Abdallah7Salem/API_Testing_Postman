@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "db5a8b8b-5521-4e47-b660-19055c9d6e17",
+		"name": "Day7_FileUpload",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40215593"
+	},
+	"item": [
+		{
+			"name": "UploadASingleFile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/Testing Career/Postman/Projects/API_Testing_Postman/6- Data Driven Tests using JSON & CSV Files/orders_json_data.json"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/uploadFile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"uploadFile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DownloadASingleFile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/downloadFile/orders_json_data.json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"downloadFile",
+						"orders_json_data.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UploadMultipleFiles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": [
+								"/D:/Testing Career/Postman/Projects/API_Testing_Postman/6- Data Driven Tests using JSON & CSV Files/orders_csv_data.csv",
+								"/D:/Testing Career/Postman/Projects/API_Testing_Postman/6- Data Driven Tests using JSON & CSV Files/orders_json_data.json"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/uploadMultipleFiles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"uploadMultipleFiles"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
