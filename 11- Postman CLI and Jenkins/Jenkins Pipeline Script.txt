@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+
+  tools {nodejs "nodeJsLocal"}
+
+  stages {
+
+    stage('Postman CLI Login') {
+      steps {
+        bat 'postman login --with-api-key PMAK-67...........'
+      }
+    }
+
+    stage('Running collection') {
+      steps {
+        bat 'postman collection run "40............" -d "your data files" -g "your global variables file"'
+      }
+    }
+  }
+}
