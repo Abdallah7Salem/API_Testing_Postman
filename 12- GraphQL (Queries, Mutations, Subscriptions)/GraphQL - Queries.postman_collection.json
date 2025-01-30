@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "f7a532f3-3fd6-409e-857f-ed41d30a4fef",
+		"name": "GraphQL - Queries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40215593"
+	},
+	"item": [
+		{
+			"name": "FetchUsersAndTheirTodos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDY3OTc1ODIwZDYxMTk4ZjdlNjhjNDRhYSJ9LCJuaWNrbmFtZSI6ImFiZGFsbGFoYWxhYXNhbGVtNyIsIm5hbWUiOiJhYmRhbGxhaGFsYWFzYWxlbTdAZ21haWwuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyLzg2MDhkZjZiOWYyMWRiZTc4Zjc2ZWJmZjA1Y2JkYzgwP3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGYWIucG5nIiwidXBkYXRlZF9hdCI6IjIwMjUtMDEtMzBUMTI6Mjk6MTUuMzM3WiIsImlzcyI6Imh0dHBzOi8vZ3JhcGhxbC10dXRvcmlhbHMuYXV0aDAuY29tLyIsImF1ZCI6IlAzOHFuRm8xbEZBUUpyemt1bi0td0V6cWxqVk5HY1dXIiwiaWF0IjoxNzM4MjQwMTU2LCJleHAiOjE3MzgyNzYxNTYsInN1YiI6ImF1dGgwfDY3OTc1ODIwZDYxMTk4ZjdlNjhjNDRhYSIsImF0X2hhc2giOiI2MHdYWXN3S01LRG1WZWdjN2YyVDNRIiwic2lkIjoidl85Z3EzMWw5QVlCZ2N6c2ZWTnVyMjVCbElzaUpKSDgiLCJub25jZSI6InZmfnB4RUFjWjV5WUVMa0hOTWtuWFVKbmtCOW9ZcHJKIn0.h8hM2NXhg3SrnkVhxQe5dFF2_jFwImCXomzKG8yE35cX1bA-FuEK55pUJTBeNI4_kDMYRMYhTIBCTlEUbZawoOF4drUE8Uji7S1CavtLKpSdugSqhAzSlEohBoxiv8rQ6bcmEN4cyXAU-rI4iMQFpKf83fr97Yr4uwpgmpmLwj1bx2b4p_YVLaSQ-yhY_qoukjrum7skrTTPdx8oMobsRXcK1B73pJVHUh2K8rov_pJvITMwKaIZzP1yoNxsGtCBiVCpIzEEsDYxQMZO_hz1PGsVLbPuGpe6qVFyGP5V3SpT0VxeCeZm3Pj2JUKB5ZwPTF0KOEg-8qX7gHlJwyb2GA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n  users {\r\n    name\r\n    todos {\r\n      title\r\n    }\r\n  }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://hasura.io/learn/graphql",
+					"protocol": "https",
+					"host": [
+						"hasura",
+						"io"
+					],
+					"path": [
+						"learn",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchLimitedTodos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDY3OTc1ODIwZDYxMTk4ZjdlNjhjNDRhYSJ9LCJuaWNrbmFtZSI6ImFiZGFsbGFoYWxhYXNhbGVtNyIsIm5hbWUiOiJhYmRhbGxhaGFsYWFzYWxlbTdAZ21haWwuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyLzg2MDhkZjZiOWYyMWRiZTc4Zjc2ZWJmZjA1Y2JkYzgwP3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGYWIucG5nIiwidXBkYXRlZF9hdCI6IjIwMjUtMDEtMzBUMTI6Mjk6MTUuMzM3WiIsImlzcyI6Imh0dHBzOi8vZ3JhcGhxbC10dXRvcmlhbHMuYXV0aDAuY29tLyIsImF1ZCI6IlAzOHFuRm8xbEZBUUpyemt1bi0td0V6cWxqVk5HY1dXIiwiaWF0IjoxNzM4MjQwMTU2LCJleHAiOjE3MzgyNzYxNTYsInN1YiI6ImF1dGgwfDY3OTc1ODIwZDYxMTk4ZjdlNjhjNDRhYSIsImF0X2hhc2giOiI2MHdYWXN3S01LRG1WZWdjN2YyVDNRIiwic2lkIjoidl85Z3EzMWw5QVlCZ2N6c2ZWTnVyMjVCbElzaUpKSDgiLCJub25jZSI6InZmfnB4RUFjWjV5WUVMa0hOTWtuWFVKbmtCOW9ZcHJKIn0.h8hM2NXhg3SrnkVhxQe5dFF2_jFwImCXomzKG8yE35cX1bA-FuEK55pUJTBeNI4_kDMYRMYhTIBCTlEUbZawoOF4drUE8Uji7S1CavtLKpSdugSqhAzSlEohBoxiv8rQ6bcmEN4cyXAU-rI4iMQFpKf83fr97Yr4uwpgmpmLwj1bx2b4p_YVLaSQ-yhY_qoukjrum7skrTTPdx8oMobsRXcK1B73pJVHUh2K8rov_pJvITMwKaIZzP1yoNxsGtCBiVCpIzEEsDYxQMZO_hz1PGsVLbPuGpe6qVFyGP5V3SpT0VxeCeZm3Pj2JUKB5ZwPTF0KOEg-8qX7gHlJwyb2GA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\r\n    todos(limit : 5) {\r\n      id\r\n      title\r\n    }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://hasura.io/learn/graphql",
+					"protocol": "https",
+					"host": [
+						"hasura",
+						"io"
+					],
+					"path": [
+						"learn",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchWithMultipleArguments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDY3OTc1ODIwZDYxMTk4ZjdlNjhjNDRhYSJ9LCJuaWNrbmFtZSI6ImFiZGFsbGFoYWxhYXNhbGVtNyIsIm5hbWUiOiJhYmRhbGxhaGFsYWFzYWxlbTdAZ21haWwuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyLzg2MDhkZjZiOWYyMWRiZTc4Zjc2ZWJmZjA1Y2JkYzgwP3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGYWIucG5nIiwidXBkYXRlZF9hdCI6IjIwMjUtMDEtMzBUMTI6Mjk6MTUuMzM3WiIsImlzcyI6Imh0dHBzOi8vZ3JhcGhxbC10dXRvcmlhbHMuYXV0aDAuY29tLyIsImF1ZCI6IlAzOHFuRm8xbEZBUUpyemt1bi0td0V6cWxqVk5HY1dXIiwiaWF0IjoxNzM4MjQwMTU2LCJleHAiOjE3MzgyNzYxNTYsInN1YiI6ImF1dGgwfDY3OTc1ODIwZDYxMTk4ZjdlNjhjNDRhYSIsImF0X2hhc2giOiI2MHdYWXN3S01LRG1WZWdjN2YyVDNRIiwic2lkIjoidl85Z3EzMWw5QVlCZ2N6c2ZWTnVyMjVCbElzaUpKSDgiLCJub25jZSI6InZmfnB4RUFjWjV5WUVMa0hOTWtuWFVKbmtCOW9ZcHJKIn0.h8hM2NXhg3SrnkVhxQe5dFF2_jFwImCXomzKG8yE35cX1bA-FuEK55pUJTBeNI4_kDMYRMYhTIBCTlEUbZawoOF4drUE8Uji7S1CavtLKpSdugSqhAzSlEohBoxiv8rQ6bcmEN4cyXAU-rI4iMQFpKf83fr97Yr4uwpgmpmLwj1bx2b4p_YVLaSQ-yhY_qoukjrum7skrTTPdx8oMobsRXcK1B73pJVHUh2K8rov_pJvITMwKaIZzP1yoNxsGtCBiVCpIzEEsDYxQMZO_hz1PGsVLbPuGpe6qVFyGP5V3SpT0VxeCeZm3Pj2JUKB5ZwPTF0KOEg-8qX7gHlJwyb2GA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\nusers(limit: 2) {\r\nid\r\nname\r\ntodos(order_by: {created_at: desc}, limit: 5) {\r\nid\r\ntitle\r\n}\r\n}\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://hasura.io/learn/graphql",
+					"protocol": "https",
+					"host": [
+						"hasura",
+						"io"
+					],
+					"path": [
+						"learn",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchWithVariables",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDY3OTc1ODIwZDYxMTk4ZjdlNjhjNDRhYSJ9LCJuaWNrbmFtZSI6ImFiZGFsbGFoYWxhYXNhbGVtNyIsIm5hbWUiOiJhYmRhbGxhaGFsYWFzYWxlbTdAZ21haWwuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyLzg2MDhkZjZiOWYyMWRiZTc4Zjc2ZWJmZjA1Y2JkYzgwP3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGYWIucG5nIiwidXBkYXRlZF9hdCI6IjIwMjUtMDEtMzBUMTI6Mjk6MTUuMzM3WiIsImlzcyI6Imh0dHBzOi8vZ3JhcGhxbC10dXRvcmlhbHMuYXV0aDAuY29tLyIsImF1ZCI6IlAzOHFuRm8xbEZBUUpyemt1bi0td0V6cWxqVk5HY1dXIiwiaWF0IjoxNzM4MjQwMTU2LCJleHAiOjE3MzgyNzYxNTYsInN1YiI6ImF1dGgwfDY3OTc1ODIwZDYxMTk4ZjdlNjhjNDRhYSIsImF0X2hhc2giOiI2MHdYWXN3S01LRG1WZWdjN2YyVDNRIiwic2lkIjoidl85Z3EzMWw5QVlCZ2N6c2ZWTnVyMjVCbElzaUpKSDgiLCJub25jZSI6InZmfnB4RUFjWjV5WUVMa0hOTWtuWFVKbmtCOW9ZcHJKIn0.h8hM2NXhg3SrnkVhxQe5dFF2_jFwImCXomzKG8yE35cX1bA-FuEK55pUJTBeNI4_kDMYRMYhTIBCTlEUbZawoOF4drUE8Uji7S1CavtLKpSdugSqhAzSlEohBoxiv8rQ6bcmEN4cyXAU-rI4iMQFpKf83fr97Yr4uwpgmpmLwj1bx2b4p_YVLaSQ-yhY_qoukjrum7skrTTPdx8oMobsRXcK1B73pJVHUh2K8rov_pJvITMwKaIZzP1yoNxsGtCBiVCpIzEEsDYxQMZO_hz1PGsVLbPuGpe6qVFyGP5V3SpT0VxeCeZm3Pj2JUKB5ZwPTF0KOEg-8qX7gHlJwyb2GA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($limit: Int!) {\r\n  todos(limit: $limit) {\r\n    id\r\n    title\r\n  }\r\n}",
+						"variables": "{\r\n\"limit\": 3\r\n}"
+					}
+				},
+				"url": {
+					"raw": "https://hasura.io/learn/graphql",
+					"protocol": "https",
+					"host": [
+						"hasura",
+						"io"
+					],
+					"path": [
+						"learn",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FetchWithFilter",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDY3OTc1ODIwZDYxMTk4ZjdlNjhjNDRhYSJ9LCJuaWNrbmFtZSI6ImFiZGFsbGFoYWxhYXNhbGVtNyIsIm5hbWUiOiJhYmRhbGxhaGFsYWFzYWxlbTdAZ21haWwuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyLzg2MDhkZjZiOWYyMWRiZTc4Zjc2ZWJmZjA1Y2JkYzgwP3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGYWIucG5nIiwidXBkYXRlZF9hdCI6IjIwMjUtMDEtMzBUMTI6Mjk6MTUuMzM3WiIsImlzcyI6Imh0dHBzOi8vZ3JhcGhxbC10dXRvcmlhbHMuYXV0aDAuY29tLyIsImF1ZCI6IlAzOHFuRm8xbEZBUUpyemt1bi0td0V6cWxqVk5HY1dXIiwiaWF0IjoxNzM4MjQwMTU2LCJleHAiOjE3MzgyNzYxNTYsInN1YiI6ImF1dGgwfDY3OTc1ODIwZDYxMTk4ZjdlNjhjNDRhYSIsImF0X2hhc2giOiI2MHdYWXN3S01LRG1WZWdjN2YyVDNRIiwic2lkIjoidl85Z3EzMWw5QVlCZ2N6c2ZWTnVyMjVCbElzaUpKSDgiLCJub25jZSI6InZmfnB4RUFjWjV5WUVMa0hOTWtuWFVKbmtCOW9ZcHJKIn0.h8hM2NXhg3SrnkVhxQe5dFF2_jFwImCXomzKG8yE35cX1bA-FuEK55pUJTBeNI4_kDMYRMYhTIBCTlEUbZawoOF4drUE8Uji7S1CavtLKpSdugSqhAzSlEohBoxiv8rQ6bcmEN4cyXAU-rI4iMQFpKf83fr97Yr4uwpgmpmLwj1bx2b4p_YVLaSQ-yhY_qoukjrum7skrTTPdx8oMobsRXcK1B73pJVHUh2K8rov_pJvITMwKaIZzP1yoNxsGtCBiVCpIzEEsDYxQMZO_hz1PGsVLbPuGpe6qVFyGP5V3SpT0VxeCeZm3Pj2JUKB5ZwPTF0KOEg-8qX7gHlJwyb2GA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  todos(where: {is_public: {_eq: true}}) {\r\n    title\r\n    is_public\r\n    is_completed\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://hasura.io/learn/graphql",
+					"protocol": "https",
+					"host": [
+						"hasura",
+						"io"
+					],
+					"path": [
+						"learn",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Simple Insert - Mutation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FWTJSVGM1UlVOR05qSXhSRUV5TURJNFFUWXdNekZETWtReU1EQXdSVUV4UVVRM05EazFNQSJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiXSwieC1oYXN1cmEtdXNlci1pZCI6ImF1dGgwfDY3OTc1ODIwZDYxMTk4ZjdlNjhjNDRhYSJ9LCJuaWNrbmFtZSI6ImFiZGFsbGFoYWxhYXNhbGVtNyIsIm5hbWUiOiJhYmRhbGxhaGFsYWFzYWxlbTdAZ21haWwuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vcy5ncmF2YXRhci5jb20vYXZhdGFyLzg2MDhkZjZiOWYyMWRiZTc4Zjc2ZWJmZjA1Y2JkYzgwP3M9NDgwJnI9cGcmZD1odHRwcyUzQSUyRiUyRmNkbi5hdXRoMC5jb20lMkZhdmF0YXJzJTJGYWIucG5nIiwidXBkYXRlZF9hdCI6IjIwMjUtMDEtMzBUMTI6Mjk6MTUuMzM3WiIsImlzcyI6Imh0dHBzOi8vZ3JhcGhxbC10dXRvcmlhbHMuYXV0aDAuY29tLyIsImF1ZCI6IlAzOHFuRm8xbEZBUUpyemt1bi0td0V6cWxqVk5HY1dXIiwiaWF0IjoxNzM4MjQwMTU2LCJleHAiOjE3MzgyNzYxNTYsInN1YiI6ImF1dGgwfDY3OTc1ODIwZDYxMTk4ZjdlNjhjNDRhYSIsImF0X2hhc2giOiI2MHdYWXN3S01LRG1WZWdjN2YyVDNRIiwic2lkIjoidl85Z3EzMWw5QVlCZ2N6c2ZWTnVyMjVCbElzaUpKSDgiLCJub25jZSI6InZmfnB4RUFjWjV5WUVMa0hOTWtuWFVKbmtCOW9ZcHJKIn0.h8hM2NXhg3SrnkVhxQe5dFF2_jFwImCXomzKG8yE35cX1bA-FuEK55pUJTBeNI4_kDMYRMYhTIBCTlEUbZawoOF4drUE8Uji7S1CavtLKpSdugSqhAzSlEohBoxiv8rQ6bcmEN4cyXAU-rI4iMQFpKf83fr97Yr4uwpgmpmLwj1bx2b4p_YVLaSQ-yhY_qoukjrum7skrTTPdx8oMobsRXcK1B73pJVHUh2K8rov_pJvITMwKaIZzP1yoNxsGtCBiVCpIzEEsDYxQMZO_hz1PGsVLbPuGpe6qVFyGP5V3SpT0VxeCeZm3Pj2JUKB5ZwPTF0KOEg-8qX7gHlJwyb2GA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  insert_todos(objects: [{title: \"sdet\"}]) {\r\n    affected_rows\r\n    returning {\r\n      id\r\n      created_at\r\n      title\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://hasura.io/learn/graphql",
+					"protocol": "https",
+					"host": [
+						"hasura",
+						"io"
+					],
+					"path": [
+						"learn",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
